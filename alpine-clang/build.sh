@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+
 if [ $1 = "nobuild" ]; then
     sh -i
 else
