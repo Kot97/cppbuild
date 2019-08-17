@@ -1,15 +1,20 @@
-FROM alpine:latest
+FROM alpine:3.10
 
-LABEL version="1.0"
 LABEL author="Marcin Kurdziel <cpp17build@gmail.com>"
+LABEL version="1.2"
 LABEL github="https://github.com/Kot97/cppbuild"
 
-ENV CMAKE_C_COMPILER "/bin/gcc"
-ENV CMAKE_CXX_COMPILER "/bin/g++"
+RUN apk update && \ 
+    apk add --no-cache \
+    cmake \
+    gcc \
+    make \
+    musl-dev
 
-RUN apk update && apk upgrade
+ENV buildname "build-alpine-gcc-latest"
 
-RUN apk add g++
-RUN apk add make cmake 
+COPY build.sh /
+RUN chmod +x /build.sh
 
-CMD cd /cppbuild/build && cmake .. && make
+ENTRYPOINT [ "/build.sh" ]
+CMD [ "cppbuild" ]
