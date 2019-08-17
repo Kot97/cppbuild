@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:latest
 
 ENV CMAKE_C_COMPILER "/bin/gcc"
 ENV CMAKE_CXX_COMPILER "/bin/g++"
