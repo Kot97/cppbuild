@@ -1,20 +1,20 @@
 #TODO : build clang from source and use libc++ and lld
 
-FROM alpine:latest
+FROM alpine:3.10
 
-LABEL maintainer="Marcin Kurdziel <cpp17build@gmail.com>"
+LABEL author="Marcin Kurdziel <cpp17build@gmail.com>"
 LABEL version="1.2"
 LABEL github="https://github.com/Kot97/cppbuild"
 
-RUN apk update && apk upgrade
-RUN apk add make cmake 
-
-RUN apk add g++
-RUN apk add clang
+RUN apk update && apk add --no-cache \
+    clang \
+    cmake \
+    g++ \
+    make
 
 ENV buildname "build-alpine-clang-latest"
 
-ADD build.sh /
+COPY build.sh /
 RUN chmod +x /build.sh
 
 ENTRYPOINT [ "/build.sh" ]
