@@ -10,4 +10,8 @@ else
         mkdir /$1/$buildname
     fi
     cd /$1/$buildname && cmake .. && make
+
+    if [ ! -z $2 ] && [ $2 = "noexit" ]; then
+        sh -i
+    fi
 fi
