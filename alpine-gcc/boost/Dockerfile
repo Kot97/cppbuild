@@ -1,9 +1,11 @@
 FROM alpine:latest
 
+LABEL version="1.0"
+LABEL author="Marcin Kurdziel <cpp17build@gmail.com>"
+LABEL github="https://github.com/Kot97/cppbuild"
+
 ENV CMAKE_C_COMPILER "/bin/gcc"
 ENV CMAKE_CXX_COMPILER "/bin/g++"
-
-MAINTAINER Marcin Kurdziel <cpp17build@gmail.com>
 
 RUN apk update && apk upgrade
 
