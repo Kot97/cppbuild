@@ -9,9 +9,12 @@ RUN apk update && \
     clang \
     cmake \
     g++ \
+    gmock \
+    gtest \
+    gtest-dev \
     make
 
-ENV buildname "build-alpine-clang"
+ENV buildname "build-alpine-clang-gtest"
 
 COPY build.sh /
 RUN chmod +x /build.sh
