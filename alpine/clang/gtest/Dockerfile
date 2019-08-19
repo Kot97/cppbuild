@@ -6,13 +6,14 @@ LABEL github="https://github.com/Kot97/cppbuild"
 
 RUN apk update && \
     apk add --no-cache \
-    clang \
-    cmake \
-    g++ \
-    gmock \
-    gtest \
-    gtest-dev \
-    make
+        clang \
+        cmake \
+        g++ \
+        git \
+        make && \
+    git clone -b master https://github.com/google/googletest.git && \
+    cd googletest && mkdir build && cd build && \
+    cmake .. && make && make install && cd ../.. && rm -R googletest && apk del git
 
 ENV buildname "build-alpine-clang-gtest"
 
