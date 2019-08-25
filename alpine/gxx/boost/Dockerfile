@@ -10,7 +10,8 @@ RUN apk update && \
     boost-dev \
     cmake \
     g++ \
-    make
+    make \
+    linux-headers
 
 ENV buildname "build-alpine-gxx-boost"
 

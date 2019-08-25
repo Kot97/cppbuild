@@ -10,6 +10,7 @@ RUN apk update && \
     apk add --no-cache \
     gcc \
     make \
-    musl-dev
+    musl-dev \
+    linux-headers
 
 ENTRYPOINT [ "/bin/sh" ]

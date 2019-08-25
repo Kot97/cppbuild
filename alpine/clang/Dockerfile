@@ -9,7 +9,8 @@ RUN apk update && \
     clang \
     cmake \
     g++ \
-    make
+    make \
+    linux-headers
 
 ENV buildname "build-alpine-clang"
 

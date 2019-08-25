@@ -8,7 +8,8 @@ RUN apk update && \
     apk add --no-cache \
     cmake \
     g++ \
-    make
+    make \
+    linux-headers
 
 ENV buildname "build-alpine-gxx"
 

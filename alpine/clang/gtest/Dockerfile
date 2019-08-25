@@ -10,7 +10,8 @@ RUN apk update && \
         cmake \
         g++ \
         git \
-        make && \
+        make \
+        linux-headers && \
     git clone -b master https://github.com/google/googletest.git && \
     cd googletest && mkdir build && cd build && \
     cmake .. && make && make install && cd ../.. && rm -R googletest && apk del git
